@@ -1,0 +1,10 @@
+target/
+.env
+.idea/
+*.iml
+.DS_Store
+capstone/node_modules/
+capstone/dist/
+capstone/users.json
+capstone/src/data/
+*.log

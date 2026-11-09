@@ -1,0 +1,147 @@
+[
+  {
+    "id": "I01 valid",
+    "status": 201
+  },
+  {
+    "id": "I02 min name zero stock",
+    "set": {
+      "name": "ABC",
+      "stock": 0
+    },
+    "status": 201
+  },
+  {
+    "id": "I03 max name",
+    "set": {
+      "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "price": 0.01
+    },
+    "status": 201
+  },
+  {
+    "id": "short name",
+    "set": {
+      "name": "AB"
+    },
+    "status": 400
+  },
+  {
+    "id": "long name",
+    "set": {
+      "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "status": 400
+  },
+  {
+    "id": "blank name",
+    "set": {
+      "name": ""
+    },
+    "status": 400
+  },
+  {
+    "id": "invalid characters",
+    "set": {
+      "name": "Bad@Name"
+    },
+    "status": 400
+  },
+  {
+    "id": "zero price",
+    "set": {
+      "price": 0
+    },
+    "status": 400
+  },
+  {
+    "id": "negative price",
+    "set": {
+      "price": -1
+    },
+    "status": 400
+  },
+  {
+    "id": "invalid price",
+    "set": {
+      "price": "abc"
+    },
+    "status": 400
+  },
+  {
+    "id": "negative stock",
+    "set": {
+      "stock": -1
+    },
+    "status": 400
+  },
+  {
+    "id": "fractional stock",
+    "set": {
+      "stock": 1.5
+    },
+    "status": 400
+  },
+  {
+    "id": "short description",
+    "set": {
+      "description": "abcd"
+    },
+    "status": 400
+  },
+  {
+    "id": "long description",
+    "set": {
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "status": 400
+  },
+  {
+    "id": "unknown field",
+    "set": {
+      "extra": "unexpected"
+    },
+    "status": 400
+  },
+  {
+    "id": "missing name",
+    "remove": [
+      "name"
+    ],
+    "status": 400
+  },
+  {
+    "id": "missing price",
+    "remove": [
+      "price"
+    ],
+    "status": 400
+  },
+  {
+    "id": "missing stock",
+    "remove": [
+      "stock"
+    ],
+    "status": 400
+  },
+  {
+    "id": "customer access",
+    "auth": "customer",
+    "status": 403
+  },
+  {
+    "id": "none access",
+    "auth": "none",
+    "status": 401
+  },
+  {
+    "id": "invalid access",
+    "auth": "invalid",
+    "status": 401
+  },
+  {
+    "id": "malformed JSON",
+    "raw": "{\"name\":",
+    "status": 400
+  }
+]

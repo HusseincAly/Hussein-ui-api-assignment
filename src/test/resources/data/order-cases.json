@@ -1,0 +1,145 @@
+[
+  {
+    "id": "O01 valid",
+    "status": 201
+  },
+  {
+    "id": "O02 min quantity",
+    "line": {
+      "quantity": 1
+    },
+    "status": 201
+  },
+  {
+    "id": "O03 all stock",
+    "line": {
+      "quantity": 10
+    },
+    "status": 201
+  },
+  {
+    "id": "zero quantity",
+    "line": {
+      "quantity": 0
+    },
+    "status": 400
+  },
+  {
+    "id": "negative quantity",
+    "line": {
+      "quantity": -1
+    },
+    "status": 400
+  },
+  {
+    "id": "fractional quantity",
+    "line": {
+      "quantity": 1.5
+    },
+    "status": 400
+  },
+  {
+    "id": "invalid quantity",
+    "line": {
+      "quantity": "abc"
+    },
+    "status": 400
+  },
+  {
+    "id": "insufficient stock",
+    "line": {
+      "quantity": 11
+    },
+    "status": 400
+  },
+  {
+    "id": "unknown item",
+    "line": {
+      "itemId": "MissingItem123"
+    },
+    "status": 404
+  },
+  {
+    "id": "invalid item id",
+    "line": {
+      "itemId": "bad!"
+    },
+    "status": 400
+  },
+  {
+    "id": "missing itemId",
+    "removeLine": [
+      "itemId"
+    ],
+    "status": 400
+  },
+  {
+    "id": "missing quantity",
+    "removeLine": [
+      "quantity"
+    ],
+    "status": 400
+  },
+  {
+    "id": "missing customerId",
+    "remove": [
+      "customerId"
+    ],
+    "status": 400
+  },
+  {
+    "id": "missing items",
+    "remove": [
+      "items"
+    ],
+    "status": 400
+  },
+  {
+    "id": "empty items",
+    "set": {
+      "items": []
+    },
+    "status": 400
+  },
+  {
+    "id": "invalid customer id",
+    "set": {
+      "customerId": "bad!"
+    },
+    "status": 400
+  },
+  {
+    "id": "blank customer",
+    "set": {
+      "customerId": ""
+    },
+    "status": 400
+  },
+  {
+    "id": "unknown field",
+    "set": {
+      "extra": true
+    },
+    "status": 400
+  },
+  {
+    "id": "customer access",
+    "auth": "customer",
+    "status": 403
+  },
+  {
+    "id": "none access",
+    "auth": "none",
+    "status": 401
+  },
+  {
+    "id": "invalid access",
+    "auth": "invalid",
+    "status": 401
+  },
+  {
+    "id": "malformed JSON",
+    "raw": "{\"items\":",
+    "status": 400
+  }
+]
